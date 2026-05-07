@@ -17,8 +17,8 @@ The `finalize()` function is designed exclusively to help you orchestrate cleanu
 
 ```ts /finalize/
 sse('/ping', ({ client, finalize }) => {
-  const interval = setInterval(() => client.send({ data: 'pong' }))
-  const timeout = setTimeout(() => client.close())
+  const interval = setInterval(() => client.send({ data: 'pong' }), 250)
+  const timeout = setTimeout(() => client.close(), 1000)
 
   finalize(() => {
     clearInterval(interval)
